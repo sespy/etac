@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- <beans:import resource="classpath:/spring/dao-application-context.xml"/> -->
+	<context:annotation-config />
+
+	<context:component-scan base-package="io.espy.etac" />
+
+	<beans:bean id="aApplicationDao" class="io.espy.etac.dao.AApplicationDao">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+
+	<beans:bean id="aAccountDao" class="io.espy.etac.dao.AAccountDao">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+
+	<beans:bean id="dataSourceRef" name="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="org.postgresql.Driver" />
+		<beans:property name="url"
+			value="jdbc:postgresql://127.0.0.1:5432/espy" />
+		<beans:property name="username" value="espy" />
+		<beans:property name="password" value="" />
+		<beans:property name="maxActive" value="-1" />
+	</beans:bean>
+
+	<!-- <beans:bean class="io.espy.etac.service.ETACServiceAccountService" 
+		/> -->
+</beans:beans>

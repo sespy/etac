@@ -1,14 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <html>
 <head>
-	<title>Home</title>
+<title>ETAC Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	<h1>ETAC</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+	<P>${serverTime}</P>
+
+	<p>
+		<a href="/etac/account/listAll">Accounts</a>
+	</p>
 </body>
 </html>
